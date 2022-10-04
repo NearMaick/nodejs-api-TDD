@@ -4,15 +4,19 @@ export function mockDate() {
   const dayNow = new Date().getDate();
   // console.log(new Date(`${yearNow}-${monthNow}-${dayNow}`));
 
-  const twoDaysFuture = new Date(`${yearNow}-${monthNow}-${dayNow + 2}`);
-
-  const oneDayFuture = new Date(`${yearNow}-${monthNow}-${dayNow + 1}`);
-
   const oneDayPast = new Date(`${yearNow}-${monthNow}-${dayNow - 2}`);
+  const oneDayFuture = new Date(`${yearNow}-${monthNow}-${dayNow + 1}`);
+  const twoDaysFuture = new Date(`${yearNow}-${monthNow}-${dayNow + 2}`);
+  const threeDaysFuture = new Date(`${yearNow}-${monthNow}-${dayNow + 3}`);
+  const fourDaysFuture = new Date(`${yearNow}-${monthNow}-${dayNow + 4}`);
+  const fiveDaysFuture = new Date(`${yearNow}-${monthNow}-${dayNow + 5}`);
 
   return {
-    twoDaysFuture,
-    oneDayFuture,
     oneDayPast,
+    oneDayFuture,
+    twoDaysFuture,
+    threeDaysFuture,
+    fourDaysFuture,
+    fiveDaysFuture,
   };
 }
