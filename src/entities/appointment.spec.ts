@@ -1,3 +1,13 @@
-import { test } from "vitest";
+import { expect, test } from "vitest";
+import { Appointment } from "./Appointment";
 
-test("create an appointment", () => {});
+test("create an appointment", () => {
+  const appointment = new Appointment({
+    customer: "John Doe",
+    startsAt: new Date(),
+    endsAt: new Date(),
+  });
+
+  expect(appointment).toBeInstanceOf(Appointment);
+  expect(appointment.customer).toEqual("John Doe");
+});
