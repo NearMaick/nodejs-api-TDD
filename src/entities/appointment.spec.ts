@@ -1,17 +1,16 @@
 import { expect, test } from "vitest";
+import { mockDate } from "../test/utils/mockDate";
 import { Appointment } from "./Appointment";
 
 test("create an appointment", () => {
-  const startsAt = new Date();
-  const endsAt = new Date();
+  const { twoDaysFuture } = mockDate();
 
-  startsAt.setDate(startsAt.getDate() + 1);
-  endsAt.setDate(endsAt.getDate() + 3);
+  console.log(new Date());
 
   const appointment = new Appointment({
     customer: "John Doe",
-    startsAt,
-    endsAt,
+    startsAt: new Date(),
+    endsAt: twoDaysFuture,
   });
 
   expect(appointment).toBeInstanceOf(Appointment);
@@ -19,33 +18,25 @@ test("create an appointment", () => {
 });
 
 test("cannot create an appointment with end date before start date", () => {
-  const startsAt = new Date();
-  const endsAt = new Date();
-
-  startsAt.setDate(startsAt.getDate() + 2);
-  endsAt.setDate(endsAt.getDate() - 1);
+  const { oneDayFuture, twoDaysFuture } = mockDate();
 
   expect(() => {
     return new Appointment({
       customer: "John Doe",
-      startsAt,
-      endsAt,
+      startsAt: twoDaysFuture,
+      endsAt: oneDayFuture,
     });
   }).toThrow();
 });
 
 test("cannot create an appointment with end date before now", () => {
-  const startsAt = new Date();
-  const endsAt = new Date();
-
-  startsAt.setDate(startsAt.getDate() + 1);
-  endsAt.setDate(endsAt.getDate() - 3);
+  const { oneDayFuture, oneDayPast } = mockDate();
 
   expect(() => {
     return new Appointment({
       customer: "John Doe",
-      startsAt,
-      endsAt,
+      startsAt: oneDayFuture,
+      endsAt: oneDayPast,
     });
   }).toThrow();
 });
