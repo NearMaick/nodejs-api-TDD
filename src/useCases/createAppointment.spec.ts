@@ -46,12 +46,12 @@ describe("Create Appointment", () => {
       })
     ).rejects.toBeInstanceOf(Error);
 
-    // await expect(
-    //   createAppointment.execute({
-    //     customer: "John Doe",
-    //     startsAt: oneDayFuture,
-    //     endsAt: threeDaysFuture,
-    //   })
-    // ).rejects.toBeInstanceOf(Error);
+    await expect(
+      createAppointment.execute({
+        customer: "John Doe",
+        startsAt: oneDayFuture,
+        endsAt: threeDaysFuture,
+      })
+    ).rejects.toBeInstanceOf(Error);
   });
 });

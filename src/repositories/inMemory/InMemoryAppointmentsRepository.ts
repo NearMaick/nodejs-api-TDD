@@ -21,7 +21,7 @@ export class InMemoryAppointmentsRepository implements AppointmentsRepository {
       const itemStartsDate = item.startsAt.getTime();
       const itemEndsDate = item.endsAt.getTime();
 
-      if (startsDate >= itemStartsDate) {
+      if (startsDate >= itemStartsDate || startsDate <= itemEndsDate) {
         return item;
       }
     });
