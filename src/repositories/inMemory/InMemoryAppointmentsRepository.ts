@@ -24,8 +24,6 @@ export class InMemoryAppointmentsRepository implements AppointmentsRepository {
       }
     });
 
-    console.log({ overlappingAppointment });
-
     if (!overlappingAppointment) {
       return null;
     }

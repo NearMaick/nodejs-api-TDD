@@ -5,8 +5,6 @@ import { Appointment } from "./Appointment";
 test("create an appointment", () => {
   const { twoDaysFuture } = mockDate();
 
-  console.log(new Date());
-
   const appointment = new Appointment({
     customer: "John Doe",
     startsAt: new Date(),
